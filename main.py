@@ -59,7 +59,7 @@ async def classify(name: str = Query(default=None)):
         )
 
     is_confident = (probability >= 0.7) and (sample_size >= 100)
-    processed_at = datetime.now(timezone.utc).isoformat(timespec='seconds').replace("+00:00", "Z")
+    processed_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     return {
         "status": "success",
